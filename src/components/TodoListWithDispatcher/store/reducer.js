@@ -1,15 +1,21 @@
 "use strict";
 import { toRefs } from "vue";
 import { useReducer } from "@/hooks";
-import { notifyTaskPool } from "@/shared";
+// import { notifyTaskPool } from "@/shared";
 import initState from "./state";
 import taskPool from "./actions/index";
+import { taskMgr } from "@/shared";
 
 export default function () {
   // 根据不同的操作类型, 执行对应的操作
+  // function reducer(state, { type, payload }) {
+  //   const notify = notifyTaskPool(state, taskPool);
+  //   notify(type, payload);
+  // }
+
   function reducer(state, { type, payload }) {
-    const notify = notifyTaskPool(state, taskPool);
-    notify(type, payload);
+    const notify = taskMgr.notify(type, taskPool);
+    notify(state, payload);
   }
 
   const [state, todoDispatch] = useReducer(reducer, initState);

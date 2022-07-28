@@ -1,7 +1,17 @@
 <template>
   <div>
-    <AddTodoForm :todos="todos" @addTodo="addTodo" />
-    <TodoList :todos="todos" :addCount="addCount" :removeCount="removeCount" />
+    <AddTodoForm
+      :todos="todos"
+      @addTodo="addTodo"
+      :inputStyle="inputStyle"
+      :addBtnStyle="addBtnStyle"
+    />
+    <TodoList
+      :todos="todos"
+      :addCount="addCount"
+      :removeCount="removeCount"
+      :tipStyle="tipStyle"
+    />
   </div>
 </template>
 
@@ -15,11 +25,23 @@ import {
   ADD_TODO,
   REMOVE_TODO,
   TOGGLE_TODO,
+  UPDATE_STYLE,
+  UPDATE_ITPCSS,
 } from "./store";
 
-const { todos, addCount, removeCount, todoDispatch } = reducer();
+const {
+  todos,
+  addCount,
+  removeCount,
+  todoDispatch,
+  inputStyle,
+  addBtnStyle,
+  tipStyle,
+} = reducer();
 
 const addTodo = todoDispatch(ADD_TODO);
+const updateInputStyle = todoDispatch(UPDATE_STYLE);
+const updateTipStyle = todoDispatch(UPDATE_ITPCSS);
 
 onMounted(() => {
   todoDispatch(INI_TODOS)();
@@ -28,5 +50,7 @@ onMounted(() => {
 provide("todoHandlers", {
   toggleTodo: todoDispatch(TOGGLE_TODO),
   removeTodo: todoDispatch(REMOVE_TODO),
+  updateInputStyle,
+  updateTipStyle,
 });
 </script>

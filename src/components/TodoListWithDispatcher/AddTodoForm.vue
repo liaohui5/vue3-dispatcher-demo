@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input type="text" v-model="todoContent" />
-    <button @click="addTodo">添加</button>
+    <input type="text" v-model="todoContent" :style="inputStyle" />
+    <button @click="addTodo" :style="addBtnStyle">添加</button>
   </div>
 </template>
 
@@ -14,6 +14,14 @@ const props = defineProps({
   todos: {
     type: Array,
     default: () => [],
+  },
+  inputStyle: {
+    type: String,
+    default: "",
+  },
+  addBtnStyle: {
+    type: String,
+    default: "",
   },
 });
 
