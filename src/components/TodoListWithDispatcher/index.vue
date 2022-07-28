@@ -9,8 +9,13 @@
 import AddTodoForm from "./AddTodoForm.vue";
 import TodoList from "./TodoList.vue";
 import { onMounted, provide } from "vue";
-import { INI_TODOS, reducer } from "./store";
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from "./store";
+import {
+  INI_TODOS,
+  reducer,
+  ADD_TODO,
+  REMOVE_TODO,
+  TOGGLE_TODO,
+} from "./store";
 
 const { todos, addCount, removeCount, todoDispatch } = reducer();
 
