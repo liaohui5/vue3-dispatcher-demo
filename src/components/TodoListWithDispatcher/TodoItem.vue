@@ -19,19 +19,18 @@ const props = defineProps({
   },
 });
 
-// 注: 不能直接解构 completed 然后再 toggleStatus 和 computed 中使用,
-// 如果直接解构, 就会导致, 如果 props.todo.completed 的值变化了
-// 无法获取到最新的 props.todo.completed 的值, 因为此时回调函数中引用的
-// 是外部的 completed 变量, 而不是 props.todo.completed 变化后的值
-const { id } = props.todo;
+// 注: 不能直接这样解构: {id, completed} = props.todo  然后再
+// toggleStatus 和 computed 中使用, 如果直接那样解构, 就会导致:
+// 在回调函数中的是 值引用, 从而无法获取最新的值, 所以必须要 址引用
+const { todo } = props;
 
 const todoStyle = computed(() => {
-  return props.todo.completed ? "text-decoration:line-through;color:red;" : "";
+  return todo.completed ? "text-decoration:line-through;color:red;" : "";
 });
 
-const removeTodo = () => handlers.removeTodo({ id });
+const removeTodo = () => handlers.removeTodo({ id: todo.id });
 
 const toggleStatus = () => {
-  handlers.toggleTodo({ id, completed: !props.todo.completed });
+  handlers.toggleTodo({ id: todo.id, completed: !todo.completed });
 };
 </script>

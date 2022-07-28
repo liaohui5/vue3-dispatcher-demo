@@ -29,5 +29,6 @@ function addTodo() {
     }
   }
   emit("addTodo", { content });
+  todoContent.value = "";
 }
 </script>
