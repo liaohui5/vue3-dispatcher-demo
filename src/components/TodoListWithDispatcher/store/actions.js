@@ -8,7 +8,7 @@ import {
   TOGGLE_TODO,
   UPDATE_ITPCSS,
   UPDATE_STYLE,
-} from "../actionTypes";
+} from "./actionTypes";
 import {
   initTodos,
   addTodo,

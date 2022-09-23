@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "start": "node ./server/app.js",
-    "watch-server": "nodemon ./server/app.js",
+    "mock-server": "nodemon ./server/app.js",
     "build": "vue-cli-service build"
   },
   "dependencies": {

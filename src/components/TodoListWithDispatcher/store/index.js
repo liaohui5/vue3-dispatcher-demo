@@ -1,7 +1,4 @@
-import reducer from "./reducer";
-import actions from "./actions/index";
-import state from "./state";
-
+"use strict";
 export * from "./actionTypes";
-
-export { state, reducer, actions };
+export { default as actions } from "./actions";
+export { default as state } from "./state";

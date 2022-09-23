@@ -16,12 +16,15 @@
 </template>
 
 <script setup>
+import { onMounted, provide } from "vue";
+import { useReducer } from "@/hooks";
 import AddTodoForm from "./AddTodoForm.vue";
 import TodoList from "./TodoList.vue";
-import { onMounted, provide } from "vue";
+
 import {
+  state,
+  actions,
   INI_TODOS,
-  reducer,
   ADD_TODO,
   REMOVE_TODO,
   TOGGLE_TODO,
@@ -33,11 +36,11 @@ const {
   todos,
   addCount,
   removeCount,
-  todoDispatch,
   inputStyle,
   addBtnStyle,
   tipStyle,
-} = reducer();
+  dispatch: todoDispatch,
+} = useReducer(state, actions);
 
 const addTodo = todoDispatch(ADD_TODO);
 const updateInputStyle = todoDispatch(UPDATE_STYLE);
