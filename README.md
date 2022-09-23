@@ -44,9 +44,20 @@ npm run start
 # 浏览器打开测试 http://localhost:8083
 ```
 
-## branchs
+## 任务队列
 
-- tasks:   基本的任务驱动模式
-- http:    加上了http请求
-- queue:   任务队列
-- taskmgr: 任务管理/将异步任务和同步任务分开处理
+ADD_TODO: [
+  异步任务: [
+    同步任务1
+    同步任务2
+    同步任务3
+  ]
+]
+
+REMOVE_TODO: [
+  异步任务: [
+    同步任务1
+    同步任务2
+    同步任务3
+  ]
+]

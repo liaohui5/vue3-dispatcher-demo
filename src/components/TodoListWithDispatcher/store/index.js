@@ -1,11 +1,7 @@
 import reducer from "./reducer";
-import actions from "./actions";
+import actions from "./actions/index";
 import state from "./state";
 
 export * from "./actionTypes";
 
-export {
-  state,
-  reducer,
-  actions,
-};
+export { state, reducer, actions };

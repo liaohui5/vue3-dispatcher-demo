@@ -14,7 +14,7 @@ export default {
     return http.post("/toggle_todo", data);
   },
 
-  removeTodo(id) {
-    return http.post("/remove_todo", { id });
+  removeTodo(data) {
+    return http.post("/remove_todo", data);
   },
 };
