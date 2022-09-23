@@ -58,3 +58,8 @@ export const updateTipStyle = (state) => {
   state.tipStyle = "background: #272822; color: red;";
   return state;
 };
+
+// 输出上一次的返回值信息
+export const log = (state, prevTaskResult) => {
+  console.log('state, prevTaskResult:', state, prevTaskResult);
+};
